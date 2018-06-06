@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-jun-2018 19:49:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.User" table="user" catalog="user_hib" optimistic-lock="version">
+        <id name="email" type="string">
+            <column name="email" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="50" />
+        </property>
+        <property name="enterprise" type="string">
+            <column name="enterprise" length="50" />
+        </property>
+        <property name="registerdate" type="string">
+            <column name="registerdate" length="50" />
+        </property>
+        <set name="accesses" table="access" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="email" length="50" not-null="true" />
+            </key>
+            <one-to-many class="model.Access" />
+        </set>
+    </class>
+</hibernate-mapping>

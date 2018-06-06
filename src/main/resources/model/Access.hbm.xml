@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-jun-2018 19:49:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Access" table="access" catalog="user_hib" optimistic-lock="version">
+        <composite-id name="id" class="model.AccessId">
+            <key-property name="email" type="string">
+                <column name="email" length="50" />
+            </key-property>
+            <key-property name="date" type="string">
+                <column name="date" length="50" />
+            </key-property>
+            <key-property name="time" type="string">
+                <column name="time" length="50" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="user" class="model.User" update="false" insert="false" fetch="select">
+            <column name="email" length="50" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
