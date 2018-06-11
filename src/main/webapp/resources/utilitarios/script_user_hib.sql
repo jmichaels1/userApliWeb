@@ -1,3 +1,5 @@
+-- user : root
+-- pass : root
 create database user_hib;
 use user_hib;
 
